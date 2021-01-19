@@ -1,0 +1,3 @@
+export PYTHONDONTWRITEBYTECODE=1
+
+python3 run.py
