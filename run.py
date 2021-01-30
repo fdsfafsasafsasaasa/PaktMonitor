@@ -1,5 +1,6 @@
 from paktmonitor import paktmonitor
 
+import sys
 
 if __name__ == "__main__":
-    paktmonitor.run("arch.local", 5000)
+    paktmonitor.run("paktmonitor.io", sys.argv[1])

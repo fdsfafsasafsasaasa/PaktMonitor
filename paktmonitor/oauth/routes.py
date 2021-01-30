@@ -8,15 +8,11 @@ discord = DiscordOAuth2Session(paktmonitor)
 def login():
     return discord.create_session()
 	
-
 @oauth.route("/callback")
 def callback():
     discord.callback()
     return redirect(url_for(".me"))
 
-
 @oauth.errorhandler(Unauthorized)
 def redirect_unauthorized(e):
     return redirect(url_for("login"))
-
-	
