@@ -1,5 +1,5 @@
 from flask import render_template, request, redirect
-from paktmonitor.api.models import login_user
+from paktmonitor.api.models import User
 from paktmonitor.api import api
 from uuid import uuid4
 api.route("/login", methods=["GET", "POST"])
