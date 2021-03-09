@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <form id="login" action="/api/login" method="post">
+        <label for="username">Username:</label>
+        <input type="text" placeholder="Username"><br><br>
+        <label for="password">Password: </label>
+        <input type="password" placeholder="Password"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+{% endblock body %}

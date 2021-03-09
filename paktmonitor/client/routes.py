@@ -1,7 +1,6 @@
-from logging import log
-from paktmonitor.oauth.routes import login
+from flask import redirect, url_for, render_template
 from paktmonitor.client import client
-from flask import redirect, url_for
+
 @client.route("/")
-def login():
-    return redirect("/oauth/login")
+def root():
+    return render_template("index.html")
