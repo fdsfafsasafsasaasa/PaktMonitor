@@ -9,5 +9,5 @@ Paktmonitor is a monitoring system for applicances, giving the user a page with 
 	* json or mongodb
 * API for appliances
 	* hash or RSA based authentication
-* Better css
+* Better CSS
 	* bootstrap
