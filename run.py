@@ -3,4 +3,4 @@ from paktmonitor import paktmonitor
 import sys
 
 if __name__ == "__main__":
-    paktmonitor.run("localhost", sys.argv[1])
+    paktmonitor.run("127.0.0.1", sys.argv[1])
