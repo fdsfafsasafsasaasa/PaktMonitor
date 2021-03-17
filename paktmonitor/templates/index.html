@@ -4,12 +4,14 @@
     <form id="login" action="/api/login" method="post">
         <div class="form-group">
             <label for="username">Username:</label>
-            <input type="text" class="form-control" placeholder="Username">
-        </div>
+            <input type="text" class="form-control" placeholder="Username" required>
+        </div><br>
         <div class="form-group">
             <label for="password">Password:</label>
-            <input type="password" class="form-control" placeholder="Password">
+            <input type="password" class="form-control" placeholder="Password" required>
+        </div><br>
+        <div class="col text-center">
+            <button type="submit" class="btn btn-primary">Submit</button>
         </div>
-            <button type="submit" class="btn btn-default">Submit</button>
     </form>
 {% endblock body %}
