@@ -4,6 +4,5 @@
         flask 
         pymongo ]
         ))
-        pkgs.sass
         ]; 
 }
