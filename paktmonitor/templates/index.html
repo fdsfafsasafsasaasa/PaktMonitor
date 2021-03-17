@@ -1,11 +1,15 @@
 {% extends 'base.html' %}
 
 {% block body %}
-    <form id="login" class="center" action="/api/login" method="post">
-        <label for="username">Username:</label>
-        <input type="text" placeholder="Username"><br><br>
-        <label for="password">Password: </label>
-        <input type="password" placeholder="Password"><br><br>
-        <input type="submit" value="Submit">
+    <form id="login" action="/api/login" method="post">
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" class="form-control" placeholder="Username">
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" class="form-control" placeholder="Password">
+        </div>
+            <button type="submit" class="btn btn-default">Submit</button>
     </form>
 {% endblock body %}
