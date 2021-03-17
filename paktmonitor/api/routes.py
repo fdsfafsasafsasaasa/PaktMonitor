@@ -2,10 +2,11 @@ from flask import render_template, request, redirect
 from paktmonitor.api.models import User
 from paktmonitor.api import api
 from uuid import uuid4
+
 api.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "GET":
-        if request.cookies.get("session-id"):
+        if request.cookies.get("session_id"):
             return redirect("/user")
         return render_template("login.html")
     elif request.method == "POST":
