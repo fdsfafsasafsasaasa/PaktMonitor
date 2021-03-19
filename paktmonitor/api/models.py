@@ -10,7 +10,7 @@ class User:
 
     @staticmethod
     def get_user(uuid):
-        user = self.database.find_one({"uuid": uuid})
+        user = User.database.find_one({"uuid": uuid})
         if not user:
             return False
         return user
@@ -18,7 +18,7 @@ class User:
     @staticmethod
     def login_user(username, password):
         hashed_password = hashlib.sha256(password.encode()).hexdigest()
-        user = self.database.find_one({"username": username})
+        user = User.database.find_one({"username": username})
         if user['password'] == hashed_password:
             return True
         else:
@@ -26,8 +26,8 @@ class User:
 
     @staticmethod
     def create_user(username, password):
-        if not self.database.find_one({"username": username}):
-            self.database.insert_one(
+        if not User.database.find_one({"username": username}):
+            User.database.insert_one(
                 {
                     "username": username,
                     "password": hashlib.sha256(password.encode()).hexdigest()
