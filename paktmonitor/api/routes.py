@@ -1,20 +1,17 @@
 from flask import render_template, request, redirect, make_response
 from paktmonitor.api.models import User
 from paktmonitor.api import api
-from uuid import uuid4
 import json
 
 @api.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "GET":
-        if request.cookies.get("session_id"):
-            return redirect("/user")
         return render_template("login.html")
     elif request.method == "POST":
         user = User.login_user(request.form.get("username"), request.form.get("password"))
-        response = make_response(render_template("user.html", user=user))
-        response.set_cookie('session_id', str(user.session_uuid))
-        return response
+        if not user:
+            return render_template("login.html")
+        return render_template("user.html", user=user)
 
 @api.route("/appliances/status")
 def appliances_status():
