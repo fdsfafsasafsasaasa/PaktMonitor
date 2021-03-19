@@ -1,9 +1,10 @@
-from flask import render_template, request, redirect, make_response
+from flask import render_template, request
+from flask_login import login_required
 from paktmonitor.api.models import User
 from paktmonitor.api import api
 import json
 
-@api.route("/login", methods=["GET", "POST"])
+@api.route("login", methods=["GET", "POST"])
 def login():
     if request.method == "GET":
         return render_template("login.html")
@@ -13,7 +14,7 @@ def login():
             return render_template("login.html")
         return render_template("user.html", user=user)
 
-@api.route("/appliances/status")
+@api.route("appliances/status")
 def appliances_status():
     return json.dumps([
         {
@@ -30,6 +31,6 @@ def appliances_status():
         }
     ])
 
-@api.route("/appliances/update/<uuid>")
+@api.route("appliances/update/<uuid>")
 def appliance_update(uuid):
     pass

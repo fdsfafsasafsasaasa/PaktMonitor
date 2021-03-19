@@ -1,3 +1,4 @@
+from paktmonitor import login_manager
 import pymongo
 import hashlib
 
@@ -20,9 +21,9 @@ class User:
         hashed_password = hashlib.sha256(password.encode()).hexdigest()
         user = User.database.find_one({"username": username})
         if user['password'] == hashed_password:
-            return True
+            return user
         else:
-            return False
+            return None
 
     @staticmethod
     def create_user(username, password):
@@ -33,3 +34,11 @@ class User:
                     "password": hashlib.sha256(password.encode()).hexdigest()
                 }
             )
+    @staticmethod
+    @login_manager.user_loader
+    def user_loader(uuid):
+        user = User.database.find_one({"uuid": uuid})
+        if user:
+            return user
+        else:
+            return None
