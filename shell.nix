@@ -3,8 +3,6 @@
     buildInputs = [ (
       pkgs.python3.withPackages (p: with p; [ 
           flask 
-          pymongo 
-          flask_login
           ]
         )
       )
